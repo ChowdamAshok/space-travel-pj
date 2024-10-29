@@ -1,0 +1,731 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body{
+    margin: 0;
+    background-color: #000;
+    color: #eee;
+    font-family: Poppins;
+    font-size: 12px;
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    width: 1140px;
+    max-width: 80%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+header a{
+    color: #eee;
+    margin-right: 5px;
+    padding: 5px 10px;
+    transition: 0.2s;
+}
+
+a.active{
+    background: #14ff72cb;
+    border-radius: 2px;
+}
+
+header a:hover{
+    background: #14ff72cb;
+    border-radius: 2px;
+}
+
+
+/* slider section  */
+
+.slider{
+    height: 100vh;
+    margin-top: -50px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.slider .list .item{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0 0 0 0;
+}
+.slider .list .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slider .list .item .content{
+    position: absolute;
+    top: 20%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: #fff;
+    text-shadow: 0 5px 10px #0004;
+}
+
+.slider .list .item .content .title,
+.slider .list .item .content .type{
+    font-size: 4em;
+    font-weight: bold;
+    line-height: 1.3em;
+}
+.slider .list .item .type{
+    color: #14ff72cb;
+}
+.slider .list .item .button{
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    gap: 5px;
+    margin-top: 20px;
+}
+.slider .list .item .button button{
+    border: none;
+    background-color: #eee;
+    font-family: Poppins;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.4s;
+    letter-spacing: 2px;
+}
+
+
+.slider .list .item .button button:hover{
+    letter-spacing: 3px;
+}
+.slider .list .item .button button:nth-child(2){
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #eee;
+}
+
+
+/* Thumbnail Section  */
+.thumbnail{
+    position: absolute;
+    bottom: 30px;
+    left: 90%;
+    width: max-content;
+    z-index: 100;
+    display: flex;
+    gap: 400px;
+}
+
+.thumbnail .item{
+    width: 70px;
+    height: 80px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.thumbnail .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* nextPrevArrows Section  */
+.nextPrevArrows{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    left: 20PX;
+    z-index: 100;
+    width: 100%;
+    display: flex;
+    gap: 90%;
+    align-items: center;
+}
+.nextPrevArrows button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #14ff72cb;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+}
+.nextPrevArrows button:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+/* Animation Part */
+.slider .list .item:nth-child(1){
+    z-index: 1;
+}
+.text-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: #ffffff;
+}
+
+.title, .type {
+    text-align: left;
+}
+
+.description {
+    position: absolute;
+    top: 20px;    
+    right: 0;   
+    text-align: right;
+    font-size: 1em;
+    color: #ffffff;
+    z-index: 101; 
+}
+
+
+/* animation text in first item */
+.slider .list .item:nth-child(1) .content .title,
+.slider .list .item:nth-child(1) .content .type,
+.slider .list .item:nth-child(1) .content .description,
+.slider .list .item:nth-child(1) .content .buttons
+{
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}
+@keyframes showContent{
+    to{
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+.slider .list .item:nth-child(1) .content .title{
+    animation-delay: 0.4s !important;
+}
+.slider .list .item:nth-child(1) .content .type{
+    animation-delay: 0.6s !important;
+}
+.slider .list .item:nth-child(1) .content .description{
+    animation-delay: 0.8s !important;
+}
+.slider .list .item:nth-child(1) .content .buttons{
+    animation-delay: 1s !important;
+}
+
+
+
+
+/* Animation for next button click */
+.slider.next .list .item:nth-child(1) img{
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 30px;
+    animation: showImage .5s linear 1 forwards;
+}
+
+@keyframes showImage{
+    to{
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.slider.next .thumbnail .item:nth-last-child(1){
+    overflow: hidden;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.slider.prev .list .item img{
+    z-index: 100;
+}
+
+
+@keyframes showThumbnail{
+    from{
+        width: 0;
+        opacity: 0;
+    }
+}
+
+
+.slider.next .thumbnail{
+    animation: effectNext .5s linear 1 forwards;
+}
+
+@keyframes effectNext{
+    from{
+        transform: translateX(150px);
+    }
+}
+
+
+
+/* Animation for prev button click */
+.slider.prev .list .item:nth-child(2){
+    z-index: 2;
+}
+
+.slider.prev .list .item:nth-child(2) img{
+    animation: outFrame 0.5s linear 1 forwards;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+@keyframes outFrame{
+    to{
+        width: 150px;
+        height: 220px;
+        bottom: 50px;
+        left: 50%;
+        border-radius: 20px;
+    }
+}
+
+.slider.prev .thumbnail .item:nth-child(1){
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumbnail .5s linear 1 forwards;
+}
+.slider.next .nextPrevArrows button,
+.slider.prev .nextPrevArrows button{
+    pointer-events: none;
+}
+
+
+.slider.prev .list .item:nth-child(2) .content .title,
+.slider.prev .list .item:nth-child(2) .content .type,
+.slider.prev .list .item:nth-child(2) .content .description,
+.slider.prev .list .item:nth-child(2) .content .buttons
+{
+    animation: contentOut 1.5s linear 1 forwards!important;
+}
+
+@keyframes contentOut{
+    to{
+        transform: translateY(-150px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+@media screen and (max-width: 678px) {
+    .slider .list .item .content{
+        padding-right: 0;
+    }
+    .slider .list .item .content .title{
+        font-size: 50px;
+    }
+}
+
+/* Styling for the About section */
+#about {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.about {
+    flex: 1;
+    padding: 20px;
+    max-width: 50%;
+}
+
+.video-background {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+}
+
+.video-background video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    #about {
+        flex-direction: column;
+    }
+    
+    .about, .video-background {
+        max-width: 100%;
+        padding: 10px;
+    }
+}
+
+  .rocket-section {
+    background-image: url(https://www.shutterstock.com/image-illustration/space-launch-system-on-launchpad-260nw-1091405810.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    padding-top: 50px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 5;
+}
+
+#rocket {
+    height: 700px;
+    transition: transform 2s ease-in, opacity 2s ease-in;
+    position: relative;
+    top: 280px; 
+    opacity: 1;
+    z-index: 10; 
+}
+/* Rocket Launch Animation */
+#rocket.launch {
+    transform: translateY(-100%); /* Move the rocket upwards */
+    opacity: 0; /* Fade out */
+}
+
+.info {
+    margin-left: 20px;
+    padding: 20px;
+}
+
+#launch-btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #ff6b6b, #f8c471);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#launch-btn:hover {
+    background: #f8c471; /* Change background on hover */
+}
+
+
+#countdown {
+    font-size: 24px; /* Size of the countdown text */
+    color: white; /* Color of the countdown text */
+    margin-bottom: 10px; /* Spacing below the countdown */
+}
+
+.booking-section{
+    background-image: url(https://image.mux.com/2kxFbHdt7EAUCShRfvmfI6e00sMtfxu3A6UfyOpoOZ01U/thumbnail.jpg?time=0&fit_mode=preserve);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    width: 100%;
+    position: relative;
+    padding: 20px;
+    text-align: left;
+}
+
+/* Center the section content and set width */
+/* Center the section content and set width */
+#booking-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+/* H1 styling to position it at the top left */
+.booking-section h1 {
+    position: absolute;
+    top: 50px;
+    left: 20px; 
+    padding: 0;
+    font-size: 2rem;
+    color: #fff;
+}
+
+/* Center the paragraph vertically and align text to the left */
+.booking-section p {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 30%; /* Adjust for spacing below the heading */
+    text-align: left;
+    max-width: 40%;
+}
+
+/* Style for the Book Now button with shadow effect */
+.book-now-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: #fff;
+    color: #333;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-image-slice: 1;
+    border-width: 2px;
+    border-image-source: linear-gradient(45deg, rgb(0, 255, 255), #7a71f8);
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(107, 134, 255, 0.637), 
+                0px 6px 15px rgba(113, 232, 248, 0.842); /* Multi-color shadow */
+}
+
+/* Button hover effect */
+.book-now-btn:hover {
+    background-color: #71eff8;
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0px 4px 12px rgb(1, 255, 242), 
+                0px 8px 18px rgba(52, 96, 243, 0.712); /* Enhanced shadow on hover */
+}
+#space-images {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Space Heading */
+.space-heading {
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Image Cards */
+.image-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* Individual Images */
+.image-cards img {
+    width: calc(45% - 25px);
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    header, .slider .list .item .content {
+        font-size: 0.8rem;
+        padding-right: 10%;
+    }
+
+    .slider .list .item .content .title {
+        font-size: 2em;
+    }
+    .rocket-section{
+        height: 45vh;
+    }
+    #launch-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.2rem;
+    }
+
+    #rocket {
+        height: 500px;
+        top: 150px;
+    }
+    
+    .booking-section p {
+        max-width: 100%;
+        font-size: 1rem;
+    }
+
+    .book-now-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .image-cards img {
+        width: calc(100% - 10px);
+        max-width: 200px;
+    }
+}
+@media (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    #rocket {
+        width: 50%;
+    }
+
+    #countdown {
+        font-size: 2rem;
+    }
+
+    #launch-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+    }
+
+    /* Further reduce space between rocket and info */
+    .info {
+        margin-top: 0.2rem;
+    }
+}
+
+/* Responsive Navigation Bar */
+@media (max-width: 1024px) {
+    header {
+        max-width: 90%;
+        height: 40px;
+    }
+
+    header a {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    header a {
+        font-size: 12px;
+        margin: 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        max-width: 95%;
+    }
+
+    header a {
+        font-size: 10px;
+        padding: 2px 6px;
+    }
+}
+
+/* Responsive Next/Prev Arrows */
+@media (max-width: 1024px) {
+    .nextPrevArrows{
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        display: flex;
+        gap: 85%;
+        align-items: center;
+    }
+    .nextPrevArrows .button {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nextPrevArrows{
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        display: flex;
+        gap: 80%;
+        align-items: center;
+    }
+    .nextPrevArrows .button{
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nextPrevArrows{
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        display: flex;
+        gap: 80%;
+        align-items: center;
+    }
+    .nextPrevArrows button {
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+    }
+    #launch-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 1rem;
+    }
+}
+
+/* Responsive Text Sizes */
+@media (max-width: 1024px) {
+    .slider .list .item .content .title,
+    .slider .list .item .content .type {
+        font-size: 3em;
+    }
+
+    .about, .description, .booking-section p, .booking-section h1 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .slider .list .item .content .title,
+    .slider .list .item .content .type {
+        font-size: 2.5em;
+    }
+
+    .about, .description, .booking-section p, .booking-section h1 {
+        font-size: 1rem;
+    }
+
+    #launch-btn, .book-now-btn {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider .list .item .content .title,
+    .slider .list .item .content .type {
+        font-size: 2em;
+    }
+
+    .about, .description, .booking-section p, .booking-section h1 {
+        font-size: 0.9rem;
+    }
+
+    #launch-btn, .book-now-btn {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+}
+
+
+
