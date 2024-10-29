@@ -388,9 +388,8 @@ header a:hover{
     position: relative;
     height: 100vh;
     overflow: hidden;
-    z-index: 100; 
+    z-index: 5;
 }
-
 
 #rocket {
     height: 700px;
@@ -398,8 +397,14 @@ header a:hover{
     position: relative;
     top: 280px; 
     opacity: 1;
-    z-index: 100;
+    z-index: 10; 
 }
+/* Rocket Launch Animation */
+#rocket.launch {
+    transform: translateY(-100%); /* Move the rocket upwards */
+    opacity: 0; /* Fade out */
+}
+
 .info {
     margin-left: 20px;
     padding: 20px;
@@ -421,11 +426,7 @@ header a:hover{
     background: #f8c471; /* Change background on hover */
 }
 
-/* Rocket Launch Animation */
-#rocket.launch {
-    transform: translateY(-100%); /* Move the rocket upwards */
-    opacity: 0; /* Fade out */
-}
+
 #countdown {
     font-size: 24px; /* Size of the countdown text */
     color: white; /* Color of the countdown text */
@@ -501,12 +502,11 @@ header a:hover{
 }
 #space-images {
     padding: 20px;
-    background-color: #1a1a1a;
     position: relative;
-    overflow: hidden;
-    z-index: 1; 
+    z-index: 1;
 }
 
+/* Space Heading */
 .space-heading {
     text-align: center;
     color: #fff;
@@ -516,20 +516,22 @@ header a:hover{
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
+/* Image Cards */
 .image-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    z-index: 1; 
+    z-index: 1;
 }
 
+/* Individual Images */
 .image-cards img {
     width: calc(45% - 25px);
     margin: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
     object-fit: cover;
-    z-index: 1; 
+    z-index: 1;
 }
 
 /* Responsive Styling */
