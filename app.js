@@ -46,10 +46,10 @@ function moveSlider(direction) {
 
 
 
-document.getElementById('launch-btn').addEventListener('click', function() {
+document.getElementById('launch-btn').addEventListener('click', function () {
     const rocket = document.getElementById('rocket');
     const countdownDisplay = document.getElementById('countdown');
-    
+
     // Initialize countdown
     let countdown = 3; // 3 seconds countdown
     countdownDisplay.innerText = countdown;
@@ -65,22 +65,28 @@ document.getElementById('launch-btn').addEventListener('click', function() {
     }, 1000); // Update every second
 
     function launchRocket() {
-        // Start the rocket's upward movement with a slow animation
-        rocket.style.transition = 'transform 8s ease-in, opacity 2s ease-in 7.5s';
-        rocket.style.transform = 'translateY(-500vh)';
-        rocket.style.opacity = '0';
+        // Set rocket to fixed to move over all sections
+        rocket.style.position = 'fixed';
+        rocket.style.top = '50%'; // Start from the middle of the screen
 
-        // Scroll the page up very slowly
+        // Set up scrolling effect
         let scrollPosition = window.scrollY;
         const scrollStep = 4;  // Small increment for slower scroll
+        const rocketMovement = 800; // Distance the rocket should travel
+
         const scrollInterval = setInterval(() => {
             if (scrollPosition > 0) {
-                scrollPosition -= scrollStep; 
+                scrollPosition -= scrollStep;
                 window.scrollTo(0, scrollPosition);
+
+                // Synchronize rocket position with scroll
+                const scrollProgress = (window.innerHeight + scrollPosition) / rocketMovement;
+                rocket.style.transform = `translateY(-${scrollProgress * 100}vh)`;
             } else {
                 clearInterval(scrollInterval);  // Stop scrolling when at the top
+                rocket.style.opacity = '0'; // Fade out rocket at the end
             }
-        }, 30); // 30ms interval for a slower scroll effect
+        }, 10); // 10ms interval for a slower scroll effect
     }
 });
 
