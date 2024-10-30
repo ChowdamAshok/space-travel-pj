@@ -575,7 +575,7 @@ header a:hover{
 @media (max-width: 480px) {
     /* Further adjustments for very small screens */
     #rocket {
-        width: 50%;
+        width: 60%;
     }
 
     #countdown {
