@@ -90,4 +90,10 @@ document.getElementById('launch-btn').addEventListener('click', function () {
     }
 });
 
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        document.body.classList.remove('loading');
+        document.querySelector('.loading-overlay').style.display = 'none';
+    }, 2000);
+});
 
